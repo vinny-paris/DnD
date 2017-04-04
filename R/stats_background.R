@@ -2,7 +2,7 @@
 DnD <- function(which.person = which.person, which.level = which.level, ...){
   
 background <- function() {
-  system("./phantomjs scrape_techstars.js")
+  system(".Downloads/phantomjs scrape_techstars.js")
 html <- read_html("techstars.html")
 Holding <- html %>% html_nodes("dl, dd") %>% html_text %>% .[2] %>% capitalize
 return(Holding)}
