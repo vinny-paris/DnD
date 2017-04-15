@@ -23,7 +23,9 @@ which.personality <- unlist(str_split(back, " "))[1]
 
 
     stats <- stat.roll(...)
-
+    
+    stats <- stats[,match(colnames(stats), row.names(race.table))]
+    stats[1,] <- stats[1,]  + t(race.table[,(paste(which.race))])
 
 #Make my character already
  Player.1 <- list(
@@ -32,7 +34,8 @@ which.personality <- unlist(str_split(back, " "))[1]
                 Level = which.level,
                 Class = which.class,
                 Proficiency.Bonus = prof[which.level],
-                Saves = class.table[which.class == types.of.classes],
+                Saves = class.table[which.class==types.of.classes],
+                Skills = row.names(Skills_by_Class)[as.logical(Skills_by_Class[,which.class])],
                 hp = hp.calculator(paste(which.class), which.level) + which.level*stats[2, "con"],
                 stats,
                 back
