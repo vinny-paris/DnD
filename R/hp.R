@@ -27,14 +27,15 @@ general.roller <- function(hit.dice, which.level = which.level){
    holding <- general.roller(hit.dice, which.level)
    
    total.hp <- holding 
-   HP <- c(total.hp, total.hp, hit.dice)
-   names(HP) <- c("Max HP", "Current HP", "Hit Dice")
+   HP <- c(total.hp, total.hp)
+   names(HP) <- c("Max HP", "Current HP")
    return(HP)
  }
 }
 
-Damage <- function(Character = Character, damage = damage){
-  Character$hp[2] <<- (Character$hp[2] - damage)
+Damage <- function(Character, damage = damage){
+  Character$hp[2] <- (Character$hp[2] - damage)
+  Character <<- Character
    return(Character)
 }
 
@@ -45,9 +46,15 @@ Heal <- function(Character = Character, heal = heal) {
    return(Character$hp)
 }
 
-
+Reactive enviorment 
+shared data
 Rest <- function(Character = Character) {
   Character$hp[2] <- Character$hp[1] 
    return(Character$hp)
 }
+
+
+skills
+weapons
+
 
