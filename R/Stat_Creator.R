@@ -21,7 +21,7 @@ Ferguson.Method <- function(Dice.Number = Dice.Number, Stats = c("str", "con", "
 
 
 
-Heroic.Method <- function(Stats = c("str", "con", "dex", "int", "wis", "char")) {
+Heroic.Method <- function(Stats = c("str", "dex", "con", "int", "wis", "char")) {
 {
   Holding <- NULL
   for (i in 1:length(Stats))
@@ -114,19 +114,9 @@ k <- if(j==1){t(Ferguson.Method(...))}
             else{if(j==2){t(Pilsfer.Method(...))} 
                 else{if(j==4){t(Base.Method(...))} 
                   else{if(j == 5) {t(Commoner.Method(...))} else{j}}}}}
-
 return(k)
 }
 
-
-
-
-
-Find.My.Mods <- function(x){
-  mod <- floor((x-10)/2)
-  return(mod)
-}
-24 + 49 + 54 + 43 + 31 + 37 + 32 + 20 + 16 + 15
 
 
 
