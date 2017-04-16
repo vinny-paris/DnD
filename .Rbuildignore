@@ -132,7 +132,7 @@ Sorcerer <-c(0,0,1,0,0,1)
 Warlock <-c(0,0,0,0,1,1)
 Wizard <- c(0,0,0,1,1,0)
 
-class.table <- as.data.frame(cbind(Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorceror, Warlock, Wizard))
+class.table <- as.data.frame(cbind(Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorcerer, Warlock, Wizard))
 row.names(class.table) <- Saves
 
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
