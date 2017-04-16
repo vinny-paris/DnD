@@ -1,10 +1,10 @@
 Package: DnD
 Type: Package
-Title: Dungeon and Dragon Character Creator 
+Title: Dungeon and Dragon Character Creator
 Version: 0.1.0
 Author: RV Paris, Ganesh Krishnan
 Maintainer: RV Paris <vinny@iastate.edu>
-Description: This package will use webscaping and randomizations inside R to create DnD characters automatically. The goal is to allow for streamlined DM NPC creations (Dungeon Master Non-Playable Character).
+Description: This package will use webscaping and randomizations inside R to create DnD characters automatically. The goal is to allow for streamlined DM NPC creations, Dungeon Master Non-Playable Character, and allow for less downtime while playing. 
 License: GPL-2
 Depends: tidyverse, rvest, ggplot2, Hmisc, stringr
 Encoding: UTF-8
