@@ -1,5 +1,16 @@
 DnD <- function(which.person = which.person, which.level = which.level, ...){
 
+    
+  Stories <- DnD::Stories
+  race_table <- DnD::race_table
+  class_table <- DnD::class_table
+  prof <- DnD::prof
+  Skills_by_Class <- DnD::Skills_by_Class
+  spell_description <- DnD::spell_description
+  Spell_List <- DnD::Spell_List
+  Spells_by_Class <- DnD::Spells_by_Class
+
+
 #Background and Stats
 {
       background <- function() {
@@ -32,7 +43,7 @@ which.personality <- unlist(str_split(back, " "))[1]
                 Level = which.level,
                 Class = which.class,
                 Proficiency.Bonus = prof[which.level],
-                Saves = class.table[which.class==types.of.classes],
+                Saves = class_table[which.class==types.of.classes],
                 Skills = row.names(Skills_by_Class)[as.logical(Skills_by_Class[,which.class])],
                 hp = hp.calculator(paste(which.class), which.level) + which.level*stats[2, "con"],
                 stats,
