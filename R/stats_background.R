@@ -9,6 +9,9 @@ DnD <- function(which.person = which.person, which.level = which.level, ...){
   spell_description <- DnD::spell_description
   Spell_List <- DnD::Spell_List
   Spells_by_Class <- DnD::Spells_by_Class
+  
+types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
+
 
 
 #Background and Stats
