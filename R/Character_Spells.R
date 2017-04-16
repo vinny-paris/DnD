@@ -3,9 +3,6 @@
 
 #Second List will have details of characters that dont use spells
 
-library(rvest)
-library(dplyr)
-
 
 url<- list()
 spell.char<- list()
@@ -68,4 +65,5 @@ names(nospell.char)<- c("barbarian","warlock","fighter","rogue","monk")
 nospell.char
 spell.char[[1]][7,]
 
-spell.char
+spell.char$warlock <- nospell.char$warlock
+nospell.char$warlock <- NULL
