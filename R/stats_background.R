@@ -36,7 +36,7 @@ which.race <- unlist(str_split(back, " "))[2]
 which.personality <- unlist(str_split(back, " "))[1]
 
 
-    Spells <- suppressWarnings(my.spells(which.level, which.class))
+    Spells <-my.spells(which.level, which.class)
 
     Stats <- stats_table[,which.class]
     stats <- stat.roll(Stats = Stats, ...)

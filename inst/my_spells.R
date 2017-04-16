@@ -1,4 +1,3 @@
-
 my.spells <- function(which.level, which.class){
   
 bard.spells.rando <- function(which.level){
