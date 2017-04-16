@@ -1,7 +1,7 @@
 stat.roll <- function(method = Commoner.Method, ...) {
  
 
-Ferguson.Method <- function(Dice.Number = Dice.Number, Stats = c("str", "con", "dex", "int", "wis", "char")){
+Ferguson.Method <- function(Dice.Number = c(4,4,4,4,4,4), Stats = c("str", "con", "dex", "int", "wis", "char")){
   x <- Dice.Number
   result <- NULL
   for (i in x){
