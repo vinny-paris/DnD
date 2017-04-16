@@ -204,4 +204,19 @@ colnames(hold) <- types.of.classes
 Skills_by_Class <- hold
 save(Skills_by_Class, "Skills_by_Class.rda")
 
-
+Barbarian.ps <- c("str", "con", "dex", "wis", "char", "int")
+Bard.ps <- c("char", "dex", "int", "con", "str", "wis")
+Cleric.ps <- c("wis", "con", "str", "char", "int", "dex")
+Druid.ps <- c("wis", "dex", "char", "int", "str", "con")
+Fighter.ps <- c("str", "con", "dex", "int", "wis", "char")
+Monk.ps <- c("dex", "wis", "con", "int", "char", "str")
+Paladin.ps <- c("str", "char", "con", "wis", "dex", "int")
+Ranger.ps <- c("dex", "wis", "con", "str", "char", "int")
+Rogue.ps <- c("dex", "char", "int", "wis", "con", "str")
+Socerer.ps <- c("char", "dex", "con", "wis", "int", "str")
+Warlock.ps <- c("char", "dex", "str", "con", "int", "wis")
+Wizard.ps <- c("int", "dex", "char", "con", "str", "wis")
+stats.table <- data.frame(Barbarian.ps, Bard.ps, Cleric.ps, Druid.ps, Fighter.ps, Monk.ps, Paladin.ps, Ranger.ps, Rogue.ps, Socerer.ps, Warlock.ps, Wizard.ps)
+colnames(stats.table) <- types.of.classes
+stats_table <- stats.table
+save(stats_table, file = "stats_table.rda")
