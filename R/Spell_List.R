@@ -1,0 +1,12 @@
+#' Spells given by level
+#'
+#' List with first element being "Level 0" (for cantrips) and continuing until "Level 9". Each element is a list with the name of spells provided
+#' @format List of Spell Levels -> Spell Names
+#' \describe{
+#'   \item{Spell Levels}{The spell levels starting at "Level 0" for cantrips and up to "Level 9"}
+#'   \item{Spell Names}{Spell names given in alphabetical order}
+#'   ...
+#' }
+#' @source \url{Dungeon and Dragons Fifth Edition Player's Hand Book}
+
+"Spell_List"
