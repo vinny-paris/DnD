@@ -15,7 +15,7 @@ read.2 <- as.character(read.csv("Background2")[,2])
 read.3 <- as.character(read.csv("Background3")[,2])
 read.4 <- as.character(read.csv("Background4")[,2])
 back <- c(read.1, read.2, read.3, read.4)
-forward <- back[!(personality[1] == "Absent"| personality[1] == "Pretty")]
+#Get ride of Absent and Pretty, regular expression problem
 forward <- forward[-554]
 
 
@@ -156,46 +156,20 @@ race_table <- race.table
 save(race_table, file = "race_table.rda")
 
 
-skills <- c("Acrobatics",
-"Animal Handling",
-"Arcana",
-"Athletics",
-"Deception",
-"History",
-"Insight",
-"Intimidation",
-"Investigation",
-"Medicine",
-"Nature",
-"Perception",
-"Performance",
-"Persuasion",
-"Religion",
-"Sleight of Hand",
-"Stealth",
-"Survival")
+skills <- c("Acrobatics","Animal Handling","Arcana","Athletics","Deception","History","Insight","Intimidation","Investigation","Medicine","Nature","Perception","Performance","Persuasion","Religion","Sleight of Hand","Stealth","Survival")
 
-Barbarian.skills <- c("Animal Handling", "Athletics",
-"Intimidation", "Nature", "Perception",  "Survival")
-Bard.skills <- c("Preformance", "Persuasion", "Perception", "Arcana", "Insight", "History")
-Cleric.skills <- c("History", "Insight", "Medicine",
-"Persuasion", "Religion")
-Druid.skills <- c("Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival")
+Barbarian.skills <- c("Animal Handling", "Athletics","Intimidation", "Nature", "Perception",  "Survival")
+Bard.skills <- c("Preformance", "Persuasion", "Perception", "Arcana", "Insight","History")
+Cleric.skills <- c("History", "Insight", "Medicine","Persuasion", "Religion")
+Druid.skills <- c("Arcana", "Animal Handling", "Insight", "Medicine", "Nature","Perception", "Religion", "Survival")
 Fighter.skills <- c("Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception",  "Survival")
-Monk.skills <- c("Acrobatics", "Athletics", "History",
-"Insight", "Religion",  "Stealth")
-Paladin.skills <- c("Athletics", "Insight", "Intimidation",
-"Medicine", "Persuasion",  "Religion")
-Ranger.skills <- c("Animal Handling",
-"Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth",  "Survival")
-Rogue.skills <- c("Athletics",
-"Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand",  "Stealth")
-Socerer.skills <- c("Arcana", "Deception", "Insight",
-"Intimidation", "Persuasion",  "Religion")
-Warlock.skills <- c("Arcana",
-"Deception", "History", "Intimidation", "Investigation", "Nature",  "Religion")
-Wizard.skills <- c("Arcana", "History", "Insight",
-"Investigation", "Medicine",  "Religion")
+Monk.skills <- c("Acrobatics", "Athletics", "History","Insight", "Religion",  "Stealth")
+Paladin.skills <- c("Athletics", "Insight", "Intimidation","Medicine", "Persuasion",  "Religion")
+Ranger.skills <- c("Animal Handling","Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth",  "Survival")
+Rogue.skills <- c("Athletics","Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand",  "Stealth")
+Socerer.skills <- c("Arcana", "Deception", "Insight","Intimidation", "Persuasion",  "Religion")
+Warlock.skills <- c("Arcana","Deception", "History", "Intimidation", "Investigation", "Nature",  "Religion")
+Wizard.skills <- c("Arcana", "History", "Insight","Investigation", "Medicine",  "Religion")
 
 hold <- sapply(list(Barbarian.skills = Barbarian.skills, Bard.skills = Bard.skills, Cleric.skills = Cleric.skills, Druid.skills = Druid.skills, Fighter.skills = Fighter.skills, Monk.skills = Monk.skills, Paladin.skills = Paladin.skills, Ranger.skills = Ranger.skills, Rogue.skills = Rogue.skills, Socerer.skills = Socerer.skills, Warlock.skills = Warlock.skills, Wizard.skills = Wizard.skills), function(u) as.numeric(skills %in% u))
 hold <- data.frame(hold)
