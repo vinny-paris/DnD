@@ -10,4 +10,3 @@ roll <- function(sides = 20, num.of.dice = 1, type = "reg"){
                 ifelse(sides == 20 & holding == 1 & num.of.dice == 1, paste("Natural 1, your character is a failure!"), 
                        holding)))
 }
-

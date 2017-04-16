@@ -10,6 +10,7 @@ DnD <- function(which.person = which.person, which.level = which.level, ...){
   Spell_List <- DnD::Spell_List
   Spells_by_Class <- DnD::Spells_by_Class
   Skills_by_Class <- DnD::Skills_by_Class
+  Weapons <- DnD::weapons
 
   
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
@@ -49,8 +50,9 @@ which.personality <- unlist(str_split(back, " "))[1]
                 Saves = class_table[which.class==types.of.classes],
                 Skills = row.names(Skills_by_Class)[as.logical(Skills_by_Class[,which.class])],
                 hp = hp.calculator(paste(which.class), which.level) + which.level*stats[2, "con"],
-                stats,
-                back
+                Statistics = stats,
+                Weapons = Weapons[ceiling(runif(3, min = 0, max = 37))],
+                Background = back
        )
 
         class(Player.1) <- append(class(Player.1),"DnD")
