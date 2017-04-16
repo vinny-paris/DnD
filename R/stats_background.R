@@ -34,7 +34,7 @@ which.race <- unlist(str_split(back, " "))[2]
 which.personality <- unlist(str_split(back, " "))[1]
 
 
-    Stats <- stats.table[,which.class]
+    Stats <- stats_table[,which.class]
     stats <- stat.roll(Stats = Stats)
     stats <- stats[,match(colnames(stats), row.names(race_table))]
     stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
