@@ -74,6 +74,8 @@ html <- read_html("http://thebombzen.github.io/grimoire/tags/wizard.html")
 Para <- html %>% html_nodes(".post-link") %>% html_text
 Wizard.spells <- Para
 
+Class_Spells <- list(Bard.spells, Cleric.spells, Druid.spells, Paladin.spells, Ranger.spells, Socerer.spells, Warlock.spells, Wizard.spells)
+names(Class_Spells) <- c("Bard", "Cleric", "Druid", "Paladin", "Ranger", "Sorcerer", "Warlock", "Wizard")
 
 
 res <- sapply(list(Wizard.spells = Wizard.spells, Warlock.spells = Warlock.spells, Soceror.spells = Soceror.spells, Ranger.spells = Ranger.spells, Paladin.spells = Paladin.spells, Druid.spells = Druid.spells, Cleric.spells = Cleric.spells, Bard.spells = Bard.spells), function(u) as.numeric(unlist(Spell_List) %in% u))
