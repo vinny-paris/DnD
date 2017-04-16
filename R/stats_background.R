@@ -35,8 +35,8 @@ which.personality <- unlist(str_split(back, " "))[1]
 
 
     Stats <- stats_table[,which.class]
-    stats <- stat.roll(Stats = Stats)
-    stats <- stats[,match(colnames(stats), row.names(race_table))]
+    stats <- stat.roll(Stats = Stats, ...)
+    stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
     stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
 
 #Make my character already
