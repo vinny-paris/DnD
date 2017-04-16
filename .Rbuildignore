@@ -1,2 +1,207 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+
+background <- function() {
+rad <- c(ceiling(runif(1, min = 0, max = 151)), ceiling(runif(1, min = 0, max = 9)), ceiling(runif(1, min = 0, max = 12)), ceiling(runif(1, min = 0, max = 784)))
+background <- str_c(Stories[[1]][rad[1],], Stories[[2]][rad[2],], Stories[[3]][rad[3],], Stories[[4]][rad[4],], sep = " ")
+return(background)
+}
+
+
+
+jk <- replicate(200, background())
+read.1 <- as.character(unlist(read.csv("Background1")[,2]))
+read.2 <- as.character(read.csv("Background2")[,2])
+read.3 <- as.character(read.csv("Background3")[,2])
+read.4 <- as.character(read.csv("Background4")[,2])
+back <- c(read.1, read.2, read.3, read.4)
+forward <- back[!(personality[1] == "Absent"| personality[1] == "Pretty")]
+forward <- forward[-554]
+
+
+
+
+
+
+
+library(reshape2)
+personalit <- colsplit(forward," ",c("Personality","Race"))
+holding <- apply(personalit[2], 2, as.character)
+race <- colsplit(holding, " ", c("Race", "Background"))
+holding.2 <- apply(race[2], 2, as.character)
+class <- colsplit(holding.2, " ", c("Class", "Background"))
+
+Personality <- unique(personalit[1], rm.na=T)
+Race <- unique(race[1], rm.na=T)
+Class <- unique(class[1], rm.na=T)
+Motivation <- unique(class[2], rm.na=T)
+
+Stories <- list(Personality, Race, Class, Motivation)
+write.csv(Stories, "Stories.csv")
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/bard.html")
+
+#works well for spell info
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Bard.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/cleric.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Cleric.spells <- Para
+
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/druid.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Druid.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/paladin.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Paladin.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/ranger.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Ranger.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/sorcerer.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Socerer.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/warlock.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Warlock.spells <- Para
+
+html <- read_html("http://thebombzen.github.io/grimoire/tags/wizard.html")
+Para <- html %>% html_nodes(".post-link") %>% html_text
+Wizard.spells <- Para
+
+
+
+res <- sapply(list(Wizard.spells = Wizard.spells, Warlock.spells = Warlock.spells, Soceror.spells = Soceror.spells, Ranger.spells = Ranger.spells, Paladin.spells = Paladin.spells, Druid.spells = Druid.spells, Cleric.spells = Cleric.spells, Bard.spells = Bard.spells), function(u) as.numeric(unlist(Spell_List) %in% u))
+row.names(res) <- unlist(Spell_List)
+Spells_by_Class <- res
+Save(Spells_by_Class, "Spells_by_Class")
+
+
+html <- read_html("http://thebombzen.github.io/grimoire/spells/mass-heal")
+
+#works well for spell info
+Para <- html %>% html_nodes(".post-content") %>% html_text
+head(Para)
+listed <- strsplit(Para, "n\n")
+
+
+listed <- list()
+super.list <- list()
+spelly <- 
+  for(j in 1:10){
+    listed <- NULL
+    listed <- list()
+for (i in Spell_List[[j]]){
+  namey <- gsub("ge/", "ge-", trimws(i))
+    namey <- gsub("ss/", "ss", trimws(namey))
+        namey <- gsub("y/", "y-", trimws(namey))
+  namey <- tolower(gsub(" ", "-", trimws(namey)))
+    namey <-gsub("'", "", trimws(namey))
+  ur <- paste("http://thebombzen.github.io/grimoire/spells", namey, sep='/')
+  htm <- read_html(ur)
+  Para <- htm %>% html_nodes(".post-content") %>% html_text
+  listed[[i]] <- strsplit(Para, "\n")
+  listed[[i]] <- unique(listed[[i]][[1]]) %>% trimws() %>% .[-2]
+  
+  
+}
+  super.list[[j]] <- listed
+}
+  
+spell_description <- list(cantrip = super.list[[1]], level.1=super.list[[2]], level.2 = super.list[[3]], level.3 = super.list[[4]], level.4 = super.list[[5]], level.5 =super.list[[6]], level.6 = super.list[[7]], level.7 = super.list[[8]], level.8 = super.list[[9]], level.9=super.list[[10]])
+
+
+prof <- c(2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,6,6,6,6)
+
+Saves <- c("Strength", "Dexterity", "Consititution", "Intelligence", "Wisdom", "Charisma")
+Barbarian <- c(1, 0,1,0,0,0)
+Bard <- c(0,1,0,0,0,1)
+Cleric <- c(0,0,0,0,1,1)
+Druid <- c(0,0,0,1,1,0)
+Fighter <- c(1,0,1,0,0,0) 
+Monk <- c(1,1,0,0,0,0)
+Paladin <- c(0,0,0,0,1,1)
+Ranger <- c(1,1,0,0,0,0)
+Rogue <- c(0,1,0,1,0,0)
+Sorcerer <-c(0,0,1,0,0,1)
+Warlock <-c(0,0,0,0,1,1)
+Wizard <- c(0,0,0,1,1,0)
+
+class.table <- as.data.frame(cbind(Barbarian, Bard, Cleric, Druid, Fighter, Monk, Paladin, Ranger, Rogue, Sorceror, Warlock, Wizard))
+row.names(class.table) <- Saves
+
+types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
+
+
+
+nam <- c("str", "dex", "con", "int", "wis", "char")
+Elf <- c(0,2,0,0,1,0)
+Halfing <- c(0,2,1,0,0,0)
+Human <- c(1,1,1,1,1,1)
+Dragonborn <- c(2,0,0,0,0,1)
+Gnome <- c(0,0,1,2,0,0)
+HE<- c(0,0,1,1,0,2)
+HO <- c(2,0,1,0,0,0)
+Tiefling <- c(0,0,0,1,0,2)
+Dwarf <- c(2,0,2,0,0,0)
+race.table <- data.frame(Elf, Halfing, Human, Dragonborn, Gnome, HE, HO, Tiefling, Dwarf)
+row.names(race.table) <- nam
+names(race.table) <- c("Elf", "Halfling", "Human", "Dragonborn", "Gnome", "Half-elf", "Half-orc", "Tiefling", "Dwarf")
+race_table <- race.table
+save(race_table, file = "race_table.rda")
+
+
+skills <- c("Acrobatics",
+"Animal Handling",
+"Arcana",
+"Athletics",
+"Deception",
+"History",
+"Insight",
+"Intimidation",
+"Investigation",
+"Medicine",
+"Nature",
+"Perception",
+"Performance",
+"Persuasion",
+"Religion",
+"Sleight of Hand",
+"Stealth",
+"Survival")
+
+Barbarian.skills <- c("Animal Handling", "Athletics",
+"Intimidation", "Nature", "Perception",  "Survival")
+Bard.skills <- c("Preformance", "Persuasion", "Perception", "Arcana", "Insight", "History")
+Cleric.skills <- c("History", "Insight", "Medicine",
+"Persuasion", "Religion")
+Druid.skills <- c("Arcana", "Animal Handling", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival")
+Fighter.skills <- c("Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception",  "Survival")
+Monk.skills <- c("Acrobatics", "Athletics", "History",
+"Insight", "Religion",  "Stealth")
+Paladin.skills <- c("Athletics", "Insight", "Intimidation",
+"Medicine", "Persuasion",  "Religion")
+Ranger.skills <- c("Animal Handling",
+"Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth",  "Survival")
+Rogue.skills <- c("Athletics",
+"Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand",  "Stealth")
+Socerer.skills <- c("Arcana", "Deception", "Insight",
+"Intimidation", "Persuasion",  "Religion")
+Warlock.skills <- c("Arcana",
+"Deception", "History", "Intimidation", "Investigation", "Nature",  "Religion")
+Wizard.skills <- c("Arcana", "History", "Insight",
+"Investigation", "Medicine",  "Religion")
+
+hold <- sapply(list(Barbarian.skills = Barbarian.skills, Bard.skills = Bard.skills, Cleric.skills = Cleric.skills, Druid.skills = Druid.skills, Fighter.skills = Fighter.skills, Monk.skills = Monk.skills, Paladin.skills = Paladin.skills, Ranger.skills = Ranger.skills, Rogue.skills = Rogue.skills, Socerer.skills = Socerer.skills, Warlock.skills = Warlock.skills, Wizard.skills = Wizard.skills), function(u) as.numeric(skills %in% u))
+hold <- data.frame(hold)
+row.names(hold) <- skills
+colnames(hold) <- types.of.classes
+Skills_by_Class <- hold
+save(Skills_by_Class, "Skills_by_Class.rda")
+
+
