@@ -204,4 +204,4 @@ ifelse(which.class == "Bard", spells <- bard.spells.rando(which.level),
   
 return(spells)
 }
-environment(my.spells) <- as.environment("package:DnD_Package")
+

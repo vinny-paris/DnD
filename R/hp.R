@@ -32,4 +32,3 @@ general.roller <- function(hit.dice, which.level = which.level){
    return(HP)
  }
 
-

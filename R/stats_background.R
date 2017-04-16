@@ -61,8 +61,8 @@ which.personality <- unlist(str_split(back, " "))[1]
 
         class(Player.1) <- append(class(Player.1),"DnD")
         return(Player.1)
+        
 }
-
 
 
 
