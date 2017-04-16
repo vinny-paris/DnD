@@ -4,11 +4,13 @@ DnD <- function(which.person = which.person, which.level = which.level, ...){
   Stories <- DnD::Stories
   race_table <- DnD::race_table
   class_table <- DnD::class_table
+  stats_table <- DnD::stats_table
   prof <- DnD::prof
-  Skills_by_Class <- DnD::Skills_by_Class
   spell_description <- DnD::spell_description
   Spell_List <- DnD::Spell_List
   Spells_by_Class <- DnD::Spells_by_Class
+  Skills_by_Class <- DnD::Skills_by_Class
+
   
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
 
@@ -32,10 +34,8 @@ which.race <- unlist(str_split(back, " "))[2]
 which.personality <- unlist(str_split(back, " "))[1]
 
 
-
-   
-    stats <- stat.roll(...)
-    
+    Stats <- stats.table[,which.class]
+    stats <- stat.roll(Stats = Stats)
     stats <- stats[,match(colnames(stats), row.names(race_table))]
     stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
 
