@@ -7,6 +7,6 @@
 #'   \item{Rows}{The 408 spells, arranged in alphabetical order}
 #'   ...
 #' }
-#' @source \url {Dungeon and Dragons Fifth Edition Player's Hand Book}
+#' @source \url{Dungeon and Dragons Fifth Edition Player's Hand Book}
 
 "Spells_by_Class"
