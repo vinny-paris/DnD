@@ -1,4 +1,4 @@
-#' Spell Descriptions 
+#' Spell Descriptions  
 #'
 #' This is a list arranged from cantrip (0 level spell) up until 9th level. Inside each element of a spell level is another list made up of the major characteristics of that spell
 #' @format A three layered list in the order of Levels -> Spells -> Characteristics of the Spell
@@ -10,4 +10,4 @@
 #' }
 #' @source \url{Dungeon and Dragons Fifth Edition Player's Hand Book}
 
-"spell_descriptions"
+"spell_description"
