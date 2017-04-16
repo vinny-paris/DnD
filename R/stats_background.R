@@ -36,6 +36,8 @@ which.race <- unlist(str_split(back, " "))[2]
 which.personality <- unlist(str_split(back, " "))[1]
 
 
+    Spells <- suppressWarnings(my.spells(which.level, which.class))
+
     Stats <- stats_table[,which.class]
     stats <- stat.roll(Stats = Stats, ...)
     stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
@@ -54,7 +56,7 @@ which.personality <- unlist(str_split(back, " "))[1]
                 Statistics = stats,
                 Weapons = Weapons[ceiling(runif(3, min = 0, max = 37))],
                 Background = back,
-                Spells = suppressWarnings(my.spells(which.level, which.class))
+                Spells = Spells
        )
 
         class(Player.1) <- append(class(Player.1),"DnD")
