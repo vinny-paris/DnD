@@ -1,14 +1,4 @@
 DnD <- function(which.person = which.person, which.level = which.level, ...){
-  
-  Stories <- DnD::Stories
-  race_table <- DnD::race_table
-  class.table <- DnD::class_table
-  prof <- DnD::prof
-  Skills_by_Class <- DnD::Skills_by_Class
-  spell_description <- DnD::spell_description
-  Spell_List <- DnD::Spell_List
-  Spells_by_Class <- DnD::Spells_by_Class
-
 
 #Background and Stats
 {
