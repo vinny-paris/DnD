@@ -1,3 +1,21 @@
+#' Statistics Creator
+#' 
+#' Create statistics and modifiers for a DnD character using various methods
+#'
+#' @param method The method used to rolls the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
+#' @export
+#' @note Commoner.Method works by rolling 3 6-sided dice for each category. Base.Method does the same as Commoner.Method but it allows you to assign the highest rolls to the most important statistic. Heroic.Method works similarlly to Base.Method except one dice is removed from each roll and a 6 is assigned in it's place; this too assigns rolls according to importance of stats. Pilsfer.Method rolls Commoner.Method three times, chooses whatever set has the highest total and then assigns highest rolls to the most important stats. Ferguson.Method takes in a vector of length 6 as well as the Stats parameter and will roll the number of dice associated with that element on the Dice.Number vector. Ferguson.Method will then pick the top three dice rolled in each category to assign the rolls. 
+#' @note There are two additional parameters that can be passed two this function, both have defaults
+#' @param Stats This is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char")
+#' @param Dice.Number This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. 
+#' @return Return the FRED data with the date that is closest to the initial date \code{x}.
+#' @examples
+#' stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
+#' stat.roll(method = Heroic.Method)
+
+
+
+
 stat.roll <- function(method = Commoner.Method, ...) {
  
 
