@@ -14,7 +14,7 @@ stat.roll(method = Commoner.Method, ...)
 \item{Dice.Number}{This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit.}
 }
 \value{
-Return the FRED data with the date that is closest to the initial date \code{x}.
+Will return a data frame of 2 x 6 with statistics as the column labels, rolls as the first row, and modifiers as the second row.
 }
 \description{
 Create statistics and modifiers for a DnD character using various methods
@@ -25,6 +25,6 @@ Commoner.Method works by rolling 3 6-sided dice for each category. Base.Method d
 There are two additional parameters that can be passed two this function, both have defaults
 }
 \examples{
-stats.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
-stats.roll(method = Heroic.Method)
+stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
+stat.roll(method = Heroic.Method)
 }

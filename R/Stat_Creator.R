@@ -8,7 +8,7 @@
 #' @note There are two additional parameters that can be passed two this function, both have defaults
 #' @param Stats This is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char")
 #' @param Dice.Number This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. 
-#' @return Return the FRED data with the date that is closest to the initial date \code{x}.
+#' @return Will return a data frame of 2 x 6 with statistics as the column labels, rolls as the first row, and modifiers as the second row.
 #' @examples
 #' stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
 #' stat.roll(method = Heroic.Method)
