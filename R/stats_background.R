@@ -4,9 +4,12 @@
 #' @param method The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
 #' @seealso Method and Stats are covered more in depth at \code{\link{stat.roll}}
 #' @seealso Method for obtaining the spells for a character at \code{\link{my.spells}}
+#' @seealso Method for obtaining the armor class for a character at \code{\link{armor.class}}
+#' @seealso Method for obtaining the hit points for a character at \code{\link{hp.calculator}}
 #' @export
 #' @param which.person Who is this character? Any character string will work, don't need to use ""
 #' @param which.level What level is the character? Please only choose numbers between 1 and 20.
+#' @note The characters produced here will have a class (as in R class) of "DnD"
 #' @details  The following are all the pieces returned by the functon.
 #' \itemize{
 #' \item{Gamer:}{ which.person}

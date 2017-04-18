@@ -1,3 +1,18 @@
+#' Armor Class Creator
+#' 
+#' Issues a type of armor and calculates an armor class for a DnD character
+#' @export
+#' @param stats The calculated statistics used in stat.roll function. See it's help page for more. 
+#' @param which.class The class of the character will establish what armor will be issued to that character. It is deterministic with the assigned armor being from the equipment section of each class.
+#' @return Will return a data frame of 2 with the first being the calcualted Armor Class and the second being the type of armor worn.
+#' @seealso Stats will come in a form produced by \code{\link{stat.roll}}
+#' @example
+#' s <- stat.roll()
+#' armor.class("Bard", s)
+
+
+
+
 armor.class <- function(which.class, stats){
   Armor <-   ifelse(which.class == "Barbarian", c(stats[2,"con"] + 10 + stats[2,"dex"]),
               ifelse(which.class == "Bard", c(11+ stats[2,"dex"]),

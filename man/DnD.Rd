@@ -34,6 +34,9 @@ The following are all the pieces returned by the functon.
 \item{Spells:}{ The spells known/prepared for the character. See the help page for my.spells for more}
 }
 }
+\note{
+The characters produced here will have a class (as in R class) of "DnD"
+}
 \examples{
 DnD(Blacksmith, 5)
 DnD(Town.Clerk, 2, method = Base.Method)
@@ -42,4 +45,8 @@ DnD(Town.Clerk, 2, method = Base.Method)
 Method and Stats are covered more in depth at \code{\link{stat.roll}}
 
 Method for obtaining the spells for a character at \code{\link{my.spells}}
+
+Method for obtaining the armor class for a character at \code{\link{armor.class}}
+
+Method for obtaining the hit points for a character at \code{\link{hp.calculator}}
 }
