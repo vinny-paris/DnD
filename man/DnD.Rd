@@ -10,6 +10,7 @@ DnD(which.person = which.person, which.level = which.level, ...)
 \item{which.person}{Who is this character? Any character string will work, don't need to use ""}
 
 \item{which.level}{What level is the character? Please only choose numbers between 1 and 20.
+\itemize{
 \item{Gamer}{which.person}
 \item{Race}{The race of the character, one of 9 possible}
 \item{Level}{which.level}
@@ -22,7 +23,8 @@ DnD(which.person = which.person, which.level = which.level, ...)
 \item{Weapons}{THree randomly assigned weapons regardless of proficiency or class}
 \item{Armor.Class}{What armor is the character wearing and what is his AC?}
 \item{Background}{Personality and motivation for the character}
-\item{Spells}{The spells known/prepared for the character. See the help page for my.spells for more}}
+\item{Spells}{The spells known/prepared for the character. See the help page for my.spells for more}
+}}
 
 \item{method}{The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 }

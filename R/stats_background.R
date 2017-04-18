@@ -7,6 +7,7 @@
 #' @export
 #' @param which.person Who is this character? Any character string will work, don't need to use ""
 #' @param which.level What level is the character? Please only choose numbers between 1 and 20.
+#' \itemize{
 #' \item{Gamer}{which.person}
 #' \item{Race}{The race of the character, one of 9 possible}
 #' \item{Level}{which.level}
@@ -20,7 +21,7 @@
 #' \item{Armor.Class}{What armor is the character wearing and what is his AC?}
 #' \item{Background}{Personality and motivation for the character}
 #' \item{Spells}{The spells known/prepared for the character. See the help page for my.spells for more}
-#' 
+#' }
 #' @examples
 #' DnD(Blacksmith, 5)
 #' DnD(Town.Clerk, 2, method = Base.Method)
@@ -75,6 +76,7 @@ which.personality <- unlist(str_split(back, " "))[1]
     stats <- stat.roll(Stats = Stats, ...)
     stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
     stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
+    stats[2,] <- floor((stats[1,] - 10)/2)
 
 #Make my character already
  Player.1 <- list(
