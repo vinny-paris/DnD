@@ -7,8 +7,7 @@
 #' @return Will return a data frame of 2 with the first being the calcualted Max Hit Points and the second being Current Hit Points.
 #' @note The implementation of this function will allow only for half-round up method of calculating HP for each level above 1, i.e. we will not allow for a roll that occurs on the lower half of the dice but instead will move those to the lowest acceptable face.
 #' @note The max and current hp produced will always be the same, this is simply to allow for easier use inside the DnD function.
-#' @example
-#' hp.calculator("Bard", 10)
+
 
 
 

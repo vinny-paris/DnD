@@ -1,7 +1,7 @@
 #' DnD Character Generator
 #' 
 #' Creates a DnD 5th edition character that is roughly built according to the rules
-#' @param method The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
+#' @param ... The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
 #' @seealso Method and Stats are covered more in depth at \code{\link{stat.roll}}
 #' @seealso Method for obtaining the spells for a character at \code{\link{my.spells}}
 #' @seealso Method for obtaining the armor class for a character at \code{\link{armor.class}}

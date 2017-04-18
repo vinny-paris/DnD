@@ -9,9 +9,7 @@ stat.roll(method = Commoner.Method, ...)
 \arguments{
 \item{method}{The method used to roll the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 
-\item{Stats}{This is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char")}
-
-\item{Dice.Number}{This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. The default is c(4,4,4,4,4,4)}
+\item{...}{Stats = this is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char").   Dice.Number = This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. The default is c(4,4,4,4,4,4)}
 }
 \value{
 Will return a data frame of 2 x 6 with statistics as the column labels, rolls as the first row, and modifiers as the second row.

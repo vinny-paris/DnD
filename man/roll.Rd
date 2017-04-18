@@ -22,3 +22,8 @@ Allows for dice rolling simulation for any natural number of dice with any natur
 \note{
 There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
 }
+\examples{
+roll()
+roll(sides = 4)
+roll(type = "adv")
+}

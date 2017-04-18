@@ -7,7 +7,7 @@
 #' @return Will return a list of 10 with spell levels 1-9 making up the first part and the tenth being Cantrips. 
 #' @note Warlocks wil be given "Known Spells", "Cantrips", and "Spell Slots" given the uniquness of their class.
 #' @note We are taking great liberties on known spells vs prepared spells inorder to stream line the process. More or less you will know and have prepared the exact number of spells you can cast at that level.
-#' @example
+#' @examples
 #' my.spells(10, "Warlock")
 #' my.spells(20, "Bard")
 #' my.spells(3, "Wizard")

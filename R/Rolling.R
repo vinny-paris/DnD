@@ -7,7 +7,7 @@
 #' @param type Do you want to roll with advantage ("adv"), disadvantage ("dis"), or regular ("reg"). Defaults to regular.
 #' @return Will return the sum of the dice after taking into account adv/dis. There is also messages for a 20 or a 1 on a single 20 sided dice.
 #' @note There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
-#' @example
+#' @examples
 #' roll()
 #' roll(sides = 4)
 #' roll(type = "adv")

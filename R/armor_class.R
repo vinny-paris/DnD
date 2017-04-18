@@ -6,7 +6,7 @@
 #' @param which.class The class of the character will establish what armor will be issued to that character. It is deterministic with the assigned armor being from the equipment section of each class.
 #' @return Will return a data frame of 2 with the first being the calcualted Armor Class and the second being the type of armor worn.
 #' @seealso Stats will come in a form produced by \code{\link{stat.roll}}
-#' @example
+#' @examples
 #' s <- stat.roll()
 #' armor.class("Bard", s)
 

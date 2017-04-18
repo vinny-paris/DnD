@@ -11,7 +11,7 @@ DnD(which.person = which.person, which.level = which.level, ...)
 
 \item{which.level}{What level is the character? Please only choose numbers between 1 and 20.}
 
-\item{method}{The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
+\item{...}{The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 }
 \description{
 Creates a DnD 5th edition character that is roughly built according to the rules

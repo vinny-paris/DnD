@@ -6,8 +6,18 @@
 \title{Prefered Statistics for Each Class}
 \format{A data frame with 6 rows and 12 variables:
 \describe{
-  \item{Columns}{The 12 possible classes, arranged alphabetical}
-  \item{Elements}{One of the six characteristic statsitics that are in as character strings (Str, Dex, Con, Int, Wis, Char)}
+  \item{Barbarian}{Class}
+  \item{Bard}{Class}
+  \item{Cleric}{Class}
+  \item{Druid}{Class}
+  \item{Fighter}{Class}
+  \item{Monk}{Class}
+  \item{Paladin}{Class}
+  \item{Ranger}{Class}
+  \item{Rogue}{Class}
+  \item{Sorcerer}{Class}
+  \item{Warlock}{Class}
+  \item{Wizard}{Class}
   ...
 }}
 \source{

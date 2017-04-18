@@ -22,3 +22,9 @@ Warlocks wil be given "Known Spells", "Cantrips", and "Spell Slots" given the un
 
 We are taking great liberties on known spells vs prepared spells inorder to stream line the process. More or less you will know and have prepared the exact number of spells you can cast at that level.
 }
+\examples{
+my.spells(10, "Warlock")
+my.spells(20, "Bard")
+my.spells(3, "Wizard")
+my.spells(10, "Barbarian")
+}
