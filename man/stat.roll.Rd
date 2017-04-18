@@ -7,11 +7,11 @@
 stat.roll(method = Commoner.Method, ...)
 }
 \arguments{
-\item{method}{The method used to rolls the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
+\item{method}{The method used to roll the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 
 \item{Stats}{This is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char")}
 
-\item{Dice.Number}{This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit.}
+\item{Dice.Number}{This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. The default is c(4,4,4,4,4,4)}
 }
 \value{
 Will return a data frame of 2 x 6 with statistics as the column labels, rolls as the first row, and modifiers as the second row.
@@ -20,9 +20,15 @@ Will return a data frame of 2 x 6 with statistics as the column labels, rolls as
 Create statistics and modifiers for a DnD character using various methods
 }
 \note{
-Commoner.Method works by rolling 3 6-sided dice for each category. Base.Method does the same as Commoner.Method but it allows you to assign the highest rolls to the most important statistic. Heroic.Method works similarlly to Base.Method except one dice is removed from each roll and a 6 is assigned in it's place; this too assigns rolls according to importance of stats. Pilsfer.Method rolls Commoner.Method three times, chooses whatever set has the highest total and then assigns highest rolls to the most important stats. Ferguson.Method takes in a vector of length 6 as well as the Stats parameter and will roll the number of dice associated with that element on the Dice.Number vector. Ferguson.Method will then pick the top three dice rolled in each category to assign the rolls.
+Commoner.Method works by rolling 3 6-sided dice for each category.
 
-There are two additional parameters that can be passed two this function, both have defaults
+Base.Method does the same as Commoner.Method but it allows you to assign the highest rolls to the most important statistic.
+
+Heroic.Method works similarlly to Base.Method except one dice is removed from each roll and a 6 is assigned in it's place; this too assigns rolls according to importance of stats.
+
+Pilsfer.Method rolls Commoner.Method three times, chooses whatever set has the highest total and then assigns highest rolls to the most important stats.
+
+Ferguson.Method takes in a vector of length 6 (Dice.Number) as well as the Stats parameter and will roll the number of dice associated with that element on the Dice.Number vector. Ferguson.Method will then pick the top three dice rolled in each category to assign the rolls.
 }
 \examples{
 stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
