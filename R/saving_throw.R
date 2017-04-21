@@ -7,7 +7,7 @@
 #' @param ... Additional arguments to be passed to the roll() function.
 #' @return Will return the the saving throw including the proficiency bonus and character statistic modifier added properly.
 #' @note There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
-#' @example
+#' @examples
 #' Blacksmith_Jamestown <- DnD(Josh, 4)
 #' saving_throw(Blacksmith_Jamestown, str)
 
