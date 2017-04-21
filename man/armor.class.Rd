@@ -17,10 +17,6 @@ Will return a data frame of 2 with the first being the calcualted Armor Class an
 \description{
 Issues a type of armor and calculates an armor class for a DnD character
 }
-\examples{
-s <- stat.roll()
-armor.class("Bard", s)
-}
 \seealso{
 Stats will come in a form produced by \code{\link{stat.roll}}
 }
