@@ -10,4 +10,4 @@ As a game, Dungeons & Dragons has an issue. Due to the players ability to get of
 
 ## Description:
 
-This package has three functions. It will create the character and produce an abbreviated character sheet as well as a small dice rolling function. The  functions are ```DnD``` and ```roll``` which is the character creator and the dice rolling function respectively.
+This package has three functions. It will create the character and produce an abbreviated character sheet as well as a small dice rolling function. The  functions are ```DnD(which.character, level, race, class)``` and ```roll(sides, num.of.dice, type)``` which is the character creator and the dice rolling function respectively. Once the DnD character has been created there are two types of special rolling that are available ```check_rolL(which.character, skill)``` and ```saving_throw(which.character, save)``` that will roll for a skill check or a saving throw for the DnD character. 
