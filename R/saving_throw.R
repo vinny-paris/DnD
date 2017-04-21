@@ -11,11 +11,25 @@
 #' Blacksmith_Jamestown <- DnD(Josh, 4)
 #' saving_throw(Blacksmith_Jamestown, str)
 
-saving_throw <- function(which.character, save,...){
+
+saving_throw <- function(which.character, save, ...){
+  UseMethod('saving_throw', which.character)
+}
+
+saving_throw.DnD <- function(which.character, save,...){
   save <- deparse(substitute(save))
   dice <- roll(...)
   result <- ifelse(class(dice) == "character",
     dice, (dice + which.character$Saves[save,1] * which.character$Proficiency.Bonus))
   return(result)
 }
+
+saving_throw.default <- function(which.character,save,...)
+        {
+                print("Not a DnD Object")
+        }
+
+
+
+
 

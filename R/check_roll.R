@@ -12,10 +12,19 @@
 #' check_roll(Blacksmith_Jamestown, History)
 
 check_roll <- function(which.character, skill, ...){
+  UseMethod('check_roll', which.character)
+}
+
+check_roll.DnD <- function(which.character, skill, ...){
   skill <- deparse(substitute(skill))
     dice <- roll(...)
   result <- ifelse(class(dice) == "character",
     dice, (dice + sum(which.character$Skills == skill) * which.character$Proficiency.Bonus))
   return(result)
 }
+
+check_roll.default <- function(which.character, skill, ...)
+        {
+                print("Not a DnD Object")
+        }
   
