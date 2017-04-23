@@ -7,8 +7,10 @@
 #' @seealso Method for obtaining the armor class for a character at \code{\link{armor.class}}
 #' @seealso Method for obtaining the hit points for a character at \code{\link{hp.calculator}}
 #' @export
-#' @param which.person Who is this character? Any character string will work, don't need to use ""
+#' @param which.person Who is this character? Any character string will work, don't need to use quotes.
 #' @param which.level What level is the character? Please only choose numbers between 1 and 20.
+#' @param class What class would you like the character to be? It will default to being randomly generated. Again, no quotes please.
+#' @param race What race would you like the character to be? It will default to being randomly choosen. Again, no quotes please.
 #' @note The characters produced here will have a class (as in R class) of "DnD"
 #' @details  The following are all the pieces returned by the functon.
 #' \itemize{
@@ -36,9 +38,9 @@
 
 
 
-DnD <- function(which.person = which.person, which.level = which.level, ...){
+DnD <- function(which.person = which.person, which.level = which.level, class = NULL, race = NULL,...){
 
-    
+#Data tables for daaaayyysssss
   Stories <- DnD::Stories
   race_table <- DnD::race_table
   class_table <- DnD::class_table
@@ -54,53 +56,60 @@ DnD <- function(which.person = which.person, which.level = which.level, ...){
   
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
 
+race <- deparse(substitute(race))
+class <- deparse(substitute(class))
 
 
 #Background and Stats
-{
-      background <- function() {
+
                 rad <- c(ceiling(runif(1, min = 0, max = 151)), ceiling(runif(1, min = 0, max = 9)), ceiling(runif(1, min = 0, max = 12)), ceiling(runif(1, min = 0, max = 784)))
-                background <- str_c(Stories[[1]][rad[1],], Stories[[2]][rad[2],], Stories[[3]][rad[3],], Stories[[4]][rad[4],], sep = " ")
-                return(background)
-              }
-    back <- background()
-}
+                which.race <- ifelse(is.null(race) == TRUE, Stories[[2]][rad[2],], race)
+                which.class <- ifelse(is.null(class) == TRUE, Stories[[3]][rad[3],], class)
+                back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
 
-
-
-#Collect Race and Class
-which.class <- unlist(str_split(back, " "))[3]
-which.race <- unlist(str_split(back, " "))[2]
-which.personality <- unlist(str_split(back, " "))[1]
-
-
+#Spells, no one wants to see the warnings that are completely a neccessary byproduct of the function
     Spells <- suppressWarnings(my.spells(which.level, which.class))
-
+    
+#Making the Stats
     Stats <- stats_table[,which.class]
-    stats <- stat.roll(Stats = Stats, ...)
-    stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
-    stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
-    stats[2,] <- floor((stats[1,] - 10)/2)
+      stats <- stat.roll(Stats = Stats, ...)
+      stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
+      stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
+      stats[2,] <- floor((stats[1,] - 10)/2)
 
 #Make my character already
  Player.1 <- list(
-                Gamer = deparse(substitute(which.person)),
-                Race = which.race,
-                Level = which.level,
-                Class = which.class,
+                Gamer             = deparse(substitute(which.person)),
+                
+                Race              = which.race,
+                
+                Level             = which.level,
+                
+                Class             = which.class,
+                
                 Proficiency.Bonus = prof[which.level],
-                Saves = class_table[which.class==types.of.classes],
-                Skills = row.names(Skills_by_Class)[as.logical(Skills_by_Class[,which.class])],
-                hp = hp.calculator(paste(which.class), which.level) + which.level*stats[2, "con"],
-                Statistics = stats,
-                Weapons = Weapons[ceiling(runif(3, min = 0, max = 37))],
-                Armor.Class = armor.class(which.class, stats),
-                Background = back,
-                Spells = Spells
+                
+                Saves             = class_table[which.class==types.of.classes],
+                
+                Skills            = row.names(Skills_by_Class)[as.logical(Skills_by_Class[,which.class])],
+                
+                hp                = hp.calculator(paste(which.class), which.level) + which.level*stats[2, "con"],
+                
+                Statistics        = stats,
+                
+                Weapons           = Weapons[ceiling(runif(3, min = 0, max = 37))],
+                
+                Armor.Class       = armor.class(which.class, stats),
+                
+                Background        = back,
+                
+                Spells            = Spells
+                
        )
 
-        class(Player.1) <- append(class(Player.1),"DnD")
-        return(Player.1)
+  class(Player.1) <- append(class(Player.1),"DnD")
+  
+return(Player.1)
         
 }
 
