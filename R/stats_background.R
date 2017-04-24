@@ -38,7 +38,7 @@
 
 
 
-DnD <- function(which.person = which.person, which.level = which.level, class = NULL, race = NULL,...){
+DnD <- function(which.person = which.person, which.level = which.level, class = 0, race = 0,...){
 
 #Data tables for daaaayyysssss
   Stories <- DnD::Stories
@@ -63,8 +63,8 @@ class <- deparse(substitute(class))
 #Background and Stats
 
                 rad <- c(ceiling(runif(1, min = 0, max = 151)), ceiling(runif(1, min = 0, max = 9)), ceiling(runif(1, min = 0, max = 12)), ceiling(runif(1, min = 0, max = 784)))
-                which.race <- ifelse(is.null(race) == TRUE, Stories[[2]][rad[2],], race)
-                which.class <- ifelse(is.null(class) == TRUE, Stories[[3]][rad[3],], class)
+                which.race <- ifelse(race == 0, Stories[[2]][rad[2],], race)
+                which.class <- ifelse(class == 0, Stories[[3]][rad[3],], class)
                 back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
 
 #Spells, no one wants to see the warnings that are completely a neccessary byproduct of the function
