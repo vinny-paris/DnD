@@ -108,6 +108,7 @@ class <- deparse(substitute(class))
        )
 
   class(Player.1) <- append(class(Player.1),"DnD")
+  eval(parse(text = paste(substitute(which.person), "<<- Player.1")))
   
 return(Player.1)
         
