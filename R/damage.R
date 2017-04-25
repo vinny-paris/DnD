@@ -2,7 +2,7 @@
 #' 
 #' Will allow for the DnD character's current HP to be automatically updated. No assignment is neccessary.
 #' @export
-#' @param which.character The DnD character who is making the check
+#' @param which.character The DnD character who being hurt
 #' @param damage The amount the character's health is to decrease by
 #' @return Will return the character with the new health status
 #' @examples
