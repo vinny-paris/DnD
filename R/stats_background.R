@@ -71,7 +71,7 @@ class <- deparse(substitute(class))
     Spells <- suppressWarnings(my.spells(which.level, which.class))
     
 #Making the Stats
-    Stats <- stats_table[,which.class]
+    Stats <- stats_table[,paste(which.class)]
       stats <- stat.roll(Stats = Stats, ...)
       stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
       stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
