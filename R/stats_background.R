@@ -97,7 +97,7 @@ class <- deparse(substitute(class))
                 
                 Statistics        = stats,
                 
-                Weapons           = Weapons[ceiling(runif(3, min = 0, max = 37))],
+                Weapons           = sample(Weapons, 3, replace = T),
                 
                 Armor.Class       = armor.class(which.class, stats),
                 
