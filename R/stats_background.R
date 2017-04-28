@@ -57,6 +57,12 @@ DnD <- function(which.person = which.person, which.level = which.level, class = 
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
 types.of.races <- c("Elf", "Human", "Halfling", "Dwarf", "Half-orc", "Half-elf", "Gnome", "Tiefling", "Dragonborn")
 
+method <- deparse(substitute(method))
+
+types.of.methods <- c('Ferguson.Method', 'Pilsfer.Method', "Heroic.Method", "Base.Method", "Commoner.Method")
+ifelse(sum(method == types.of.methods) == 0, return(paste("Not a reconginzed rolling method!")), {
+  
+
 race <- deparse(substitute(race))
 class <- deparse(substitute(class))
 
@@ -120,6 +126,7 @@ class <- deparse(substitute(class))
 return(Player.1)
        }
 ))
+})
 }
 
 
