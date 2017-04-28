@@ -20,7 +20,3 @@ Will allow for the a initiative roll for a DnD character
 \note{
 There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
 }
-\examples{
-Blacksmith_Jamestown <- DnD(Josh, 4)
-initiative(Blacksmith_Jamestown)
-}

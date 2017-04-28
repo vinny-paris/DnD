@@ -8,6 +8,8 @@
 }
 \arguments{
 \item{which.character}{The DnD character who is making the initiative roll}
+
+\item{...}{Additional arguments to be passed to the roll() function.}
 }
 \value{
 Will return the the simulated roll

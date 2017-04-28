@@ -17,11 +17,6 @@ Will return the the simulated roll
 \description{
 Will allow for the DnD character to heal for some predetermined amount. No assignment is neccessary.
 }
-\examples{
-DnD(Josh, 4)
-heal(Blacksmith_Jamestown, 20)
-Blacksmith_Jamestown$hp
-}
 \seealso{
 \code{\link{heal.DnD}}
 }

@@ -28,10 +28,6 @@
 #' \item{Background:}{ Personality and motivation for the character}
 #' \item{Spells:}{ The spells known/prepared for the character. See the help page for my.spells for more}
 #' }
-#' @examples
-#' DnD(Blacksmith, 5)
-#' DnD(Town.Clerk, 2, method = Base.Method)
-
 
 
 

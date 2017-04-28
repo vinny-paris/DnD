@@ -42,10 +42,6 @@ The following are all the pieces returned by the functon.
 \note{
 The characters produced here will have a class (as in R class) of "DnD"
 }
-\examples{
-DnD(Blacksmith, 5)
-DnD(Town.Clerk, 2, method = Base.Method)
-}
 \seealso{
 Method and Stats are covered more in depth at \code{\link{stat.roll}}
 

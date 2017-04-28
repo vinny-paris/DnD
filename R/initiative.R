@@ -6,9 +6,6 @@
 #' @param ... Additional arguments to be passed to the roll() function.
 #' @return Will return the the check rolled including the proficiency bonus and character statistic modifier added properly.
 #' @note There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
-#' @examples
-#' Blacksmith_Jamestown <- DnD(Josh, 4)
-#' initiative(Blacksmith_Jamestown)
 
 initiative <- function(which.character){
   UseMethod('initiative', which.character)
