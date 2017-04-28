@@ -4,17 +4,22 @@
 \alias{DnD}
 \title{DnD Character Generator}
 \usage{
-DnD(which.person = which.person, which.level = which.level, ...)
+DnD(which.person = which.person, which.level = which.level, class = 0,
+  race = 0, ...)
 }
 \arguments{
-\item{which.person}{Who is this character? Any character string will work, don't need to use ""}
+\item{which.person}{Who is this character? Any character string will work, don't need to use quotes.}
 
 \item{which.level}{What level is the character? Please only choose numbers between 1 and 20.}
+
+\item{class}{What class would you like the character to be? It will default to being randomly generated. Again, no quotes please.}
+
+\item{race}{What race would you like the character to be? It will default to being randomly choosen. Again, no quotes please.}
 
 \item{...}{The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 }
 \description{
-Creates a DnD 5th edition character that is roughly built according to the rules
+Creates a DnD 5th edition character that is roughly built according to the rules. An important point is that the object is automatically built inside the function, DO NOT USE ASSINGMENT. This is redundant.
 }
 \details{
 The following are all the pieces returned by the functon.

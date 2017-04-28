@@ -4,14 +4,14 @@
 \alias{roll}
 \title{Dice Rolling Function}
 \usage{
-roll(sides = 20, num.of.dice = 1, type = "reg")
+roll(sides = 20, num.of.dice = 1, type = reg)
 }
 \arguments{
 \item{sides}{How many sides should be used to run the simulation? Defaults to 20}
 
 \item{num.of.dice}{How many dice should be "rolled"? Defaults to 1}
 
-\item{type}{Do you want to roll with advantage ("adv"), disadvantage ("dis"), or regular ("reg"). Defaults to regular.}
+\item{type}{Do you want to roll with advantage (adv), disadvantage (dis), or regular (reg). Defaults to regular. Please no quotation marks}
 }
 \value{
 Will return the sum of the dice after taking into account adv/dis. There is also messages for a 20 or a 1 on a single 20 sided dice.
