@@ -23,11 +23,6 @@ heal <- function(which.character, health){
 #' @param which.character The DnD character who is being healed.
 #' @param health The amount the character should be healed.
 #' @return Will return the the simulated roll
-#' @examples
-#' DnD(Josh, 4)
-#' heal(Blacksmith_Jamestown, 20)
-#' Blacksmith_Jamestown$hp
-
 
 
 heal.DnD <- function(which.character, health){
