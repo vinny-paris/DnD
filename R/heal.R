@@ -31,15 +31,14 @@ heal <- function(which.character, health){
 
 
 heal.DnD <- function(which.character, health){
-  health <- deparse(substitute(health))
-  ifelse(is.double(health) == FALSE, return(paste("Please give a single numeric value")), {
-  hope <- which.character
-  hope$hp[2] <- which.character$hp["Current HP"] + health
-  holding <-(which.character$hp["Current HP"])
-   eval(parse(text = paste(substitute(which.character),"<<- hope", sep = "")))
-  return(paste("Updated!"))
-})}
-
+  connector <- suppressWarnings(is.na(as.numeric(deparse(substitute(health)))))
+  ifelse(connector == TRUE, return(paste("Please give a single numeric value")), {
+    hope <- which.character
+    hope$hp[2] <- which.character$hp["Current HP"] + health
+    holding <-(which.character$hp["Current HP"])
+    eval(parse(text = paste(substitute(which.character),"<<- hope", sep = "")))
+    return(paste("Updated!"))
+  })}
 
 
 
