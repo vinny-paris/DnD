@@ -9,9 +9,6 @@
 #' @note There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
 #' @seealso \code{\link{saving_throw.DnD}}
 #' @seealso \code{\link{saving_throw.default}}
-#' @examples
-#' Blacksmith_Jamestown <- DnD(Josh, 4)
-#' saving_throw(Blacksmith_Jamestown, str)
 
 
 saving_throw <- function(which.character, save, ...){
