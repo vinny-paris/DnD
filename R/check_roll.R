@@ -17,10 +17,13 @@ check_roll <- function(which.character, skill, ...){
 
 check_roll.DnD <- function(which.character, skill, ...){
   skill <- deparse(substitute(skill))
+  ifelse(sum(skill == rownames(Skills_by_Class)) == 0, return(paste("Please give a single skill which can be found on the Skills_by_Class table")), {
+    
     dice <- roll(...)
   result <- ifelse(class(dice) == "character",
     dice, (dice + sum(which.character$Skills == skill) * which.character$Proficiency.Bonus))
   return(result)
+})
 }
 
 check_roll.default <- function(which.character, skill, ...)

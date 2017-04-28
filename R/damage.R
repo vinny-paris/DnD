@@ -30,10 +30,14 @@ damage <- function(which.character, damage){
 
 
 damage.DnD <- function(which.character, damage){
+  connector <- suppressWarnings(is.na(as.numeric(deparse(substitute(damage)))))
+  ifelse(connector == TRUE, return(paste("Please give a single numeric value")), {
   hope <- which.character
   hope$hp[2] <- which.character$hp["Current HP"] - damage
   holding <-(which.character$hp["Current HP"])
   eval(parse(text = paste(substitute(which.character),"<<- hope", sep = "")))
+  return(paste("Updated!"))
+  })
 }
 
 #' Current HP damage modifier
