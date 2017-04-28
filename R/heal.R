@@ -49,7 +49,7 @@ heal.DnD <- function(which.character, health){
 #' @seealso \code{\link{heal.default}}
 #' @param which.character The DnD character who is being healed.
 #' @param health The amount the character should be healed.
-#' @return Will return a warning message about bbeing passed a DnD object.
+#' @return Will return a warning message about being passed a DnD object.
 
 
 heal.default <- function(which.character, health)
