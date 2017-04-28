@@ -36,10 +36,12 @@ saving_throw <- function(which.character, save, ...){
 
 saving_throw.DnD <- function(which.character, save,...){
   save <- deparse(substitute(save))
+  ifelse(sum(save == rownames(class_table)) == 0, return(paste("Please give a single skill which can be found on the Skills_by_Class table")), {
   dice <- roll(...)
   result <- ifelse(class(dice) == "character",
     dice, (dice + which.character$Saves[save,1] * which.character$Proficiency.Bonus))
   return(result)
+})
 }
 
 
