@@ -20,6 +20,8 @@
 
 my.spells <- function(which.level, which.class){
   
+  
+  
 bard.spells.rando <- function(which.level){
 j <- character_tables$bard[which.level,4:14]
 j <- as.numeric(as.character(j))
