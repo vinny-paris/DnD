@@ -38,7 +38,7 @@
 
 
 
-DnD <- function(which.person = which.person, which.level = which.level, class = 0, race = 0,...){
+DnD <- function(which.person = which.person, which.level = which.level, class = 0, race = 0,  ...){
 
 #Data tables for daaaayyysssss
   Stories <- DnD::Stories
@@ -57,15 +57,8 @@ DnD <- function(which.person = which.person, which.level = which.level, class = 
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
 types.of.races <- c("Elf", "Human", "Halfling", "Dwarf", "Half-orc", "Half-elf", "Gnome", "Tiefling", "Dragonborn")
 
-method <- deparse(substitute(method))
-
-types.of.methods <- c('Ferguson.Method', 'Pilsfer.Method', "Heroic.Method", "Base.Method", "Commoner.Method")
-ifelse(sum(method == types.of.methods) == 0, return(paste("Not a reconginzed rolling method!")), {
-  
-
 race <- deparse(substitute(race))
 class <- deparse(substitute(class))
-
 
 #Background and Stats
 
@@ -73,10 +66,8 @@ class <- deparse(substitute(class))
                 which.race <- ifelse(race == 0, Stories[[2]][rad[2],], race)
                 which.class <- ifelse(class == 0, Stories[[3]][rad[3],], class)
                 
-                
     ifelse(sum(which.class == types.of.classes) == 0, return(paste('Not a reconginized class')), 
-         ifelse(sum(which.race == types.of.races) == 0, return(paste('Note a reconginized race')), {
-               
+         ifelse(sum(which.race == types.of.races) == 0, return(paste('Note a reconginized race')), { 
            back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
            
                          
@@ -126,7 +117,7 @@ class <- deparse(substitute(class))
 return(Player.1)
        }
 ))
-})
+
 }
 
 
