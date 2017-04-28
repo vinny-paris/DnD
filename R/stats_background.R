@@ -55,6 +55,7 @@ DnD <- function(which.person = which.person, which.level = which.level, class = 
 
   
 types.of.classes <- c("Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk", "Paladin", "Ranger", "Rogue", "Sorcerer", "Warlock", "Wizard")
+types.of.races <- c("Elf", "Human", "Halfling", "Dwarf", "Half-orc", "Half-elf", "Gnome", "Tiefling", "Dragonborn")
 
 race <- deparse(substitute(race))
 class <- deparse(substitute(class))
@@ -65,8 +66,14 @@ class <- deparse(substitute(class))
                 rad <- c(ceiling(runif(1, min = 0, max = 151)), ceiling(runif(1, min = 0, max = 9)), ceiling(runif(1, min = 0, max = 12)), ceiling(runif(1, min = 0, max = 784)))
                 which.race <- ifelse(race == 0, Stories[[2]][rad[2],], race)
                 which.class <- ifelse(class == 0, Stories[[3]][rad[3],], class)
-                back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
-
+                
+                
+    ifelse(sum(which.class == types.of.classes) == 0, return(paste('Not a reconginized class')), 
+         ifelse(sum(which.race == types.of.races) == 0, return(paste('Note a reconginized race')), {
+               
+           back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
+           
+                         
 #Spells, no one wants to see the warnings that are completely a neccessary byproduct of the function
     Spells <- suppressWarnings(my.spells(which.level, which.class))
     
@@ -111,7 +118,8 @@ class <- deparse(substitute(class))
   eval(parse(text = paste(substitute(which.person), "<<- Player.1")))
   
 return(Player.1)
-        
+       }
+))
 }
 
 
