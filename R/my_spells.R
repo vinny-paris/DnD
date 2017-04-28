@@ -188,7 +188,7 @@ for(i in 1:5){
  asd <- sub("nd", "", asd)
  asd <- sub("rd", "", asd)
  asd <- sub("th", "", asd)
-  SL <- unlist(Spell_List[1:(as.numeric(asd[which.level])+1)])
+  SL <- unlist(Spell_List[2:(as.numeric(asd[which.level])+1)])
   CS <- Class_Spells$Warlock
   holding <- unlist(Spell_List[2:(as.numeric(asd[which.level])+1)])[as.logical(as.numeric(SL %in% CS))]
 
