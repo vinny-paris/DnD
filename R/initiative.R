@@ -14,12 +14,32 @@ initiative <- function(which.character){
   UseMethod('initiative', which.character)
 }
 
+#' Initiative Roller
+#' 
+#' Will allow for the DnD character to roll an intiative roll to be simulated. No assignment is neccessary. 
+#' 
+#' @seealso \code{\link{initiative.DnD}}
+#' @param which.character The DnD character who is making the initiative roll
+#' @return Will return the the simulated roll
+
+
+
 initiative.DnD <- function(which.character,...){
     dice <- roll(...)
   result <- ifelse(class(dice) == "character",
     dice, dice + which.character$Statistics[2,"dex"] )
   return(result)
 }
+
+
+
+#' Initiative Roller
+#' 
+#' Will allow for the DnD character to roll an intiative roll to be simulated. No assignment is neccessary. 
+#' 
+#' @seealso \code{\link{initiative.default}}
+#' @param which.character The DnD character who is making the initiative roll
+#' @return Will return a warning message about being passed a DnD object.
 
 initiative.default <- function(which.character)
         {
