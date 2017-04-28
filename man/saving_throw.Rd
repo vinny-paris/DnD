@@ -17,7 +17,7 @@ saving_throw(which.character, save, ...)
 Will return the the saving throw including the proficiency bonus and character statistic modifier added properly.
 }
 \description{
-Will allow for the a save throw for a DnD character
+Will allow for the a save throw for a DnD character. This *is* a generic function and will return a a warning message fro a non-DnD class object.
 }
 \note{
 There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
@@ -25,4 +25,9 @@ There is no way to tell if the dice rolled used adv/dis after the fact so be car
 \examples{
 Blacksmith_Jamestown <- DnD(Josh, 4)
 saving_throw(Blacksmith_Jamestown, str)
+}
+\seealso{
+\code{\link{saving_throw.DnD}}
+
+\code{\link{saving_throw.default}}
 }
