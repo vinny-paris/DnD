@@ -61,9 +61,9 @@ class <- deparse(substitute(class))
                 rad <- c(ceiling(runif(1, min = 0, max = 151)), ceiling(runif(1, min = 0, max = 9)), ceiling(runif(1, min = 0, max = 12)), ceiling(runif(1, min = 0, max = 784)))
                 which.race <- ifelse(race == 0, Stories[[2]][rad[2],], race)
                 which.class <- ifelse(class == 0, Stories[[3]][rad[3],], class)
-                
-    ifelse(sum(which.class == types.of.classes) == 0, return(paste('Not a reconginized class')), 
-         ifelse(sum(which.race == types.of.races) == 0, return(paste('Note a reconginized race')), { 
+  ifelse(sum(which.level == 1:20) != 1, return(paste('Please choose a level between 1 and 20 inclusive')), {              
+    ifelse(sum(which.class == types.of.classes) != 1, return(paste('Not a reconginized class')), 
+         ifelse(sum(which.race == types.of.races) != 1, return(paste('Not a reconginized race')), { 
            back <- str_c(Stories[[1]][rad[1],], which.race, which.class, Stories[[4]][rad[4],], sep = " ")
            
                          
@@ -113,7 +113,7 @@ class <- deparse(substitute(class))
 return(Player.1)
        }
 ))
-
+})
 }
 
 
