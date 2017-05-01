@@ -1,7 +1,6 @@
 #' Statistics Creator
 #' 
 #' Create statistics and modifiers for a DnD character using various methods
-#'
 #' @param method The method used to roll the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
 #' @note Commoner.Method works by rolling 3 6-sided dice for each category. 
 #' @note Base.Method does the same as Commoner.Method but it allows you to assign the highest rolls to the most important statistic. 
@@ -10,9 +9,6 @@
 #' @note Ferguson.Method takes in a vector of length 6 (Dice.Number) as well as the Stats parameter and will roll the number of dice associated with that element on the Dice.Number vector. Ferguson.Method will then pick the top three dice rolled in each category to assign the rolls. 
 #' @param ... Stats = this is the ordering of the statistics used in assinging the highest level rolls, second highest, ect... The default is c("str", "dex", "con", "int", "wis", "char").   Dice.Number = This is used only for the Ferguson.Method. It takes a numeric vector of length 6 and each element in this vector will be the number of dice rolled for each statistic category. The author suggestes that 24 dice be assinged in any way the player sees fit. The default is c(4,4,4,4,4,4)
 #' @return Will return a data frame of 2 x 6 with statistics as the column labels, rolls as the first row, and modifiers as the second row.
-#' @examples
-#' stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
-#' stat.roll(method = Heroic.Method)
 
 
 
