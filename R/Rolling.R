@@ -27,8 +27,12 @@ roll <- function(sides = 20, num.of.dice = 1, type = reg){
              ifelse( type == "adv", max(c(base(), base())), 
              ifelse( type == "dis", min(c(base(), base())), paste("Not a valid roll type. Choose adv, reg, or dis"))))
   
-  return(ifelse(sides == 20 & holding == 20 & num.of.dice == 1, paste("Congrats! It's a natural 20, keep up the good work."), 
-                ifelse(sides == 20 & holding == 1 & num.of.dice == 1, paste("Natural 1, your character is a failure!"), 
+  success <- c("Congrats! It's a natural 20, keep up the good work.", "Nat 20! You show them Orcs.", "20 naturally, MVP right here!", "Natrual 20! Do a little dance!", "Somedays you can't get anything right, but today is not that day! Natural 20!", "Critical Success, ain't nothing standing in your way", "Natural 20! Everyone stand back, you'll do it yourself", "Natural 20, Celebrate!", "Natural 20! Success and you barely had to lift a finger.") 
+  failure <- c("Natrual 1, hope that wasn't an important roll...", "Natural 1, your character is a failure!", "Natural 1, well there are more important things than winning.", "Natural 1, do you like failing?", "Natural 1, what's a game without the threat of losing", "Natural 1, way to let the team down", "Natural 1, some character was distracted....", "Naturual 1, your as useless as rubber lips on a woodpecker.", "Natural 1. Don't feel bad. A lot of people have no talent!", "Natural 1, the gods of the dice are displeased by you","Natural 1. Wow, just....wow", "Natural 1, were you trained by goblins?")
+  
+  
+  return(ifelse(sides == 20 & holding == 20 & num.of.dice == 1, paste(sample(success, 1)), 
+                ifelse(sides == 20 & holding == 1 & num.of.dice == 1, paste(sample(failure, 1)), 
                        holding)))
   })
 
