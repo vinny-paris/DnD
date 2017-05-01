@@ -28,7 +28,3 @@ Pilsfer.Method rolls Commoner.Method three times, chooses whatever set has the h
 
 Ferguson.Method takes in a vector of length 6 (Dice.Number) as well as the Stats parameter and will roll the number of dice associated with that element on the Dice.Number vector. Ferguson.Method will then pick the top three dice rolled in each category to assign the rolls.
 }
-\examples{
-stat.roll(method = Ferguson.Method, Stats = c("con", "str", "wis", "dex", "int", "char"), Dice.Number = c(7,4,4,3,3,3))
-stat.roll(method = Heroic.Method)
-}
