@@ -3,7 +3,6 @@
 #' Create statistics and modifiers for a DnD character using various methods
 #'
 #' @param method The method used to roll the dice. Options include Commoner.Method, Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method. 
-#' @export
 #' @note Commoner.Method works by rolling 3 6-sided dice for each category. 
 #' @note Base.Method does the same as Commoner.Method but it allows you to assign the highest rolls to the most important statistic. 
 #' @note Heroic.Method works similarlly to Base.Method except one dice is removed from each roll and a 6 is assigned in it's place; this too assigns rolls according to importance of stats. 
