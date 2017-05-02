@@ -8,13 +8,13 @@ DnD(which.person = which.person, which.level = which.level, class = 0,
   race = 0, ...)
 }
 \arguments{
-\item{which.person}{Who is this character? Any character string will work, don't need to use quotes.}
+\item{which.person}{Who is this character? Any character string will work, don't need to use quotes but it cannot deal with spaces inside the string. Please use either underscores/hyphens/quotes for such things. Thank you!}
 
 \item{which.level}{What level is the character? Please only choose numbers between 1 and 20.}
 
-\item{class}{What class would you like the character to be? It will default to being randomly generated. Again, no quotes please.}
+\item{class}{What class would you like the character to be? It will default to being randomly generated. Again, no quotes please. The choices are the basic 12 given in the Player's Handbook.}
 
-\item{race}{What race would you like the character to be? It will default to being randomly choosen. Again, no quotes please.}
+\item{race}{What race would you like the character to be? It will default to being randomly choosen. Again, no quotes please. Possible choices are Elf, Human, Half-elf, Half-orc, Halfling, Dragonborn, Gnome, Tiefling, Dwarf.}
 
 \item{...}{The method used to roll the dice. Options include Commoner.Method (which is defaulted inside of DnD), Base.Method, Pilsfer.Method, Heroic.Method, and Ferguson.Method.}
 }
