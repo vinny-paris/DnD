@@ -16,8 +16,15 @@
 stat.roll <- function(method = Commoner.Method, ...) {
  
 
+   is.natural <- function(x)
+  {
+    x>0 && identical(round(x), x)
+   }
+   
 Ferguson.Method <- function(Dice.Number = c(4,4,4,4,4,4), Stats = c("str", "con", "dex", "int", "wis", "char")){
   x <- Dice.Number
+  ifelse(is.numeric(x) == 0, return(paste('Please only pass numeric arguments to Dice.Number parameter')), {
+  ifelse(is.natural(x) & length(x) == 6,{ 
   result <- NULL
   for (i in x){
     rolls <- ceiling(runif(i, min = 0, max =6))
@@ -32,7 +39,7 @@ Ferguson.Method <- function(Dice.Number = c(4,4,4,4,4,4), Stats = c("str", "con"
   result <- as.data.frame(result)
   
     return(result)
-}
+}, return(unlist(paste("For Ferguson.Method please enter a length 6 postitive natural number vector"))))})}
 
 
 
@@ -121,7 +128,7 @@ j <- ifelse(x == "Ferguson.Method", 1,
        ifelse(x == "Heroic.Method", 3, 
               ifelse(x == "Pilsfer.Method", 2, 
                      ifelse(x == "Base.Method", 4, 
-                            ifelse(x == "Commoner.Method", 5, paste("Can be one of these: Ferguson.Method, Heroic.Method, Pilsfer.Method, Base.Method, Commoner.Method  Also note that the default setting for the ordering of stats is built in for a given class. Otherwise it defaults to str, con, dex, int, wis, char."))))))
+                            ifelse(x == "Commoner.Method", 5, return(paste("Can be one of these: Ferguson.Method, Heroic.Method, Pilsfer.Method, Base.Method, Commoner.Method  Also note that the default setting for the ordering of stats is built in for a given class. Otherwise it defaults to str, con, dex, int, wis, char.")))))))
 
 
 k <- if(j==1){t(Ferguson.Method(...))} 

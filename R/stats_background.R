@@ -73,6 +73,7 @@ class <- deparse(substitute(class))
 #Making the Stats
     Stats <- stats_table[,paste(which.class)]
       stats <- stat.roll(Stats = Stats, ...)
+      ifelse(is.numeric(stats) == 0, return(stats), {
       stats <- stats[,match(row.names(DnD::race_table), colnames(stats))]
       stats[1,] <- stats[1,]  + t(race_table[,paste(which.race)])
       stats[2,] <- floor((stats[1,] - 10)/2)
@@ -111,9 +112,11 @@ class <- deparse(substitute(class))
   eval(parse(text = paste(substitute(which.person), "<<- Player.1")))
   
 return(Player.1)
-       }
-))
+      }
+ ) })
+)
 })
+
 }
 
 
