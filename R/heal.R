@@ -20,6 +20,7 @@ heal <- function(which.character, health){
 #' Will allow for the DnD character to heal for some predetermined amount. No assignment is neccessary. 
 #' 
 #' @seealso \code{\link{heal.DnD}}
+#' @export
 #' @param which.character The DnD character who is being healed.
 #' @param health The amount the character should be healed.
 #' @return Will return the the simulated roll
@@ -43,6 +44,7 @@ heal.DnD <- function(which.character, health){
 #' 
 #' @seealso \code{\link{heal.default}}
 #' @param which.character The DnD character who is being healed.
+#' @export
 #' @param health The amount the character should be healed.
 #' @return Will return a warning message about being passed a DnD object.
 

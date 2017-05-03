@@ -17,6 +17,7 @@ rest <- function(which.character){
 #' Will allow for the DnD character's current HP to be automatically updated to the max HP the character has. No assignment is neccessary. 
 #' 
 #' @seealso \code{\link{rest.default}}
+#' @export
 #' @param which.character The DnD character who is being healed
 #' @return Will return the character with the new health status
 
