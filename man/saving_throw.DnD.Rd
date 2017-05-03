@@ -22,7 +22,3 @@ Will allow for a saving throw for a DnD character.
 \note{
 There is no way to tell if the dice rolled used adv/dis after the fact so be careful in specifing the parameters.
 }
-\examples{
-Blacksmith_Jamestown <- DnD(Josh, 4)
-saving_throw(Blacksmith_Jamestown, str)
-}
