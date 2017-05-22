@@ -8,7 +8,7 @@ pattern <- deparse(substitute(pattern))
 testing <- spell_description %>% map(names) %>% map(grep, pattern = pattern)
 testing
 
-f <- ifelse(length(unlist(testing)) == 0, paste("No Matches. Sorry but check spelling maybe?  :/"), {
+f <- ifelse(length(unlist(testing)) == 0 & length(para_search(pattern)) == 0, paste("No Matches. Sorry but check spelling maybe?  :/   "), {
 
 names.only <- ifelse(sum(pattern == unlist(Spell_List)) == 1 & length(unlist(testing)) == 1 & quick.return == T, F, names.only)
 
@@ -34,7 +34,9 @@ holding <- c(holding, lis)
 }
 spell_nams <- (names(holding))
 findings <- if(names.only == T){spell_nams} else{holding}
-return(findings)
+done <- list(findings, para_search(pattern))
+names(done) <- c('Spell Names', 'In Body of Text')
+return(done)
 
 })
 return(f)
